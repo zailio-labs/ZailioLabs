@@ -2,7 +2,7 @@
 'use client';
 import Link from 'next/link';
 import { motion } from 'framer-motion';
-import { contactInfo, socialMedia } from '../../data/contact';
+import { contactInfo, socialMedia } from '@/data/contact';
 
 export default function Footer() {
   const currentYear = new Date().getFullYear();
