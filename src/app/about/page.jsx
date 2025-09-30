@@ -1,8 +1,9 @@
 // src/app/about/page.jsx
 'use client';
 import { motion } from 'framer-motion';
-import Header from '@/components/ui/Header';
-import Footer from '@/components/ui/Footer';
+import Header from '../components/ui/Header';
+import Footer from '../components/ui/Footer';
+
 
 export default function AboutPage() {
   const values = [
