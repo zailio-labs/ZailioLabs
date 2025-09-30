@@ -2,7 +2,7 @@
 'use client';
 import { useState } from 'react';
 import { motion, AnimatePresence } from 'framer-motion';
-import { services } from '../../data/services';
+import { services } from '@/data/services';
 
 export default function ContactForm() {
   const [formData, setFormData] = useState({
