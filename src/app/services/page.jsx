@@ -1,10 +1,10 @@
 // src/app/services/page.jsx
 'use client';
 import { motion } from 'framer-motion';
-import Header from '@/components/ui/Header';
-import Footer from '@/components/ui/Footer';
-import ServiceCard from '@/components/ui/ServiceCard';
-import { services } from '@/data/services';
+import Header from '../components/ui/Header';
+import Footer from '../components/ui/Footer';
+import ServiceCard from '../components/ui/ServiceCard';
+import { services } from '../../data/services';
 
 export default function ServicesPage() {
   return (
