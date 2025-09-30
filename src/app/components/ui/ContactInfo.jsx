@@ -1,7 +1,7 @@
 // src/app/components/ui/ContactInfo.jsx
 'use client';
 import { motion } from 'framer-motion';
-import { contactInfo, socialMedia } from '../../data/contact';
+import { contactInfo, socialMedia } from '@/data/contact';
 
 export default function ContactInfo() {
   return (
