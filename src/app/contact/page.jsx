@@ -1,10 +1,10 @@
 // src/app/contact/page.jsx
 'use client';
 import { motion } from 'framer-motion';
-import Header from '../components/ui/Header';
-import Footer from '../components/ui/Footer';
-import ContactForm from '../components/ui/ContactForm';
-import ContactInfo from '../components/ui/ContactInfo';
+import Header from '@/components/ui/Header';
+import Footer from '@/components/ui/Footer';
+import ContactForm from '@/components/ui/ContactForm';
+import ContactInfo from '@/components/ui/ContactInfo';
 
 export default function ContactPage() {
   return (
