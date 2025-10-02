@@ -9,8 +9,8 @@ const nextConfig = {
     MONGODB_URI: process.env.MONGODB_URI || 'mongodb+srv://zailiolabs:zailiolabs@cluster0.bxtjsvf.mongodb.net/?retryWrites=true&w=majority&appName=Cluster0',
     
     // Authentication
-    NEXTAUTH_SECRET: process.env.NEXTAUTH_SECRET || '',
-    NEXTAUTH_URL: process.env.NEXTAUTH_URL || '',
+    NEXTAUTH_SECRET: process.env.NEXTAUTH_SECRET || 'ziyan123',
+    NEXTAUTH_URL: process.env.NEXTAUTH_URL || 'https://zailio-labs.vercel.app',
     
     // Zoho Mail Configuration
     ZOHO_EMAIL: process.env.ZOHO_EMAIL || '',
