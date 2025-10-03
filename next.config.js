@@ -13,13 +13,13 @@ const nextConfig = {
     NEXTAUTH_URL: process.env.NEXTAUTH_URL || 'https://zailio-labs.vercel.app',
     
     // Zoho Mail Configuration
-    ZOHO_EMAIL: process.env.ZOHO_EMAIL || '',
-    ZOHO_PASSWORD: process.env.ZOHO_PASSWORD || '',
+    ZOHO_EMAIL: process.env.ZOHO_EMAIL || 'zailio.labs@zailio.com',
+    ZOHO_PASSWORD: process.env.ZOHO_PASSWORD || 'qXujna8.',
     ZOHO_HOST: process.env.ZOHO_HOST || 'smtp.zoho.com',
     ZOHO_PORT: process.env.ZOHO_PORT || '587',
     
     // Admin Credentials
-    ADMIN_EMAIL: process.env.ADMIN_EMAIL || '',
+    ADMIN_EMAIL: process.env.ADMIN_EMAIL || 'ziyan@zailio.com',
     ADMIN_PASSWORD: process.env.ADMIN_PASSWORD || 'admin123',
   },
 }
