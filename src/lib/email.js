@@ -1,7 +1,7 @@
 // src/lib/email.js
 import nodemailer from 'nodemailer';
 
-const transporter = nodemailer.createTransporter({
+const transporter = nodemailer.createTransport({
   host: process.env.ZOHO_HOST,
   port: process.env.ZOHO_PORT,
   secure: false,
