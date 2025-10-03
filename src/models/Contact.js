@@ -64,3 +64,12 @@ export async function deleteContact(id) {
   await init();
   return await db.collection('contacts').deleteOne({ _id: new ObjectId(id) });
 }
+
+export default {
+  createContact,
+  getContacts,
+  getContactById,
+  updateContactStatus,
+  getUnreadCount,
+  deleteContact
+};
