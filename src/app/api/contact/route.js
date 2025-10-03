@@ -1,6 +1,6 @@
 // src/app/api/contact/route.js
-import { createContact } from '../../../../models/Contact';
-import { sendEmail } from '../../../../lib/email';
+import Contact from '@/models/Contact';
+import { sendEmail } from '@/lib/email';
 
 export async function POST(request) {
   try {
