@@ -1,29 +1,43 @@
 // src/lib/auth.js
-import { verifyAdmin } from '../models/Admin';
+import jwt from 'jsonwebtoken';
 
-export async function authenticateAdmin(email, password) {
-  return await verifyAdmin(email, password);
+const JWT_SECRET = process.env.JWT_SECRET || 'your-fallback-secret-change-in-production';
+
+// Mock admin data - replace with real database in production
+const ADMIN_CREDENTIALS = {
+  email: process.env.ADMIN_EMAIL || 'admin@zailiolabs.com',
+  password: process.env.ADMIN_PASSWORD || 'admin123' // Change this!
+};
+
+export function authenticateAdmin(email, password) {
+  if (email === ADMIN_CREDENTIALS.email && password === ADMIN_CREDENTIALS.password) {
+    return {
+      email: ADMIN_CREDENTIALS.email,
+      name: 'Admin',
+      role: 'admin'
+    };
+  }
+  return null;
 }
 
 export function createSessionToken(admin) {
-  // Simple session token (in production, use JWT)
-  return Buffer.from(JSON.stringify({
-    email: admin.email,
-    name: admin.name,
-    role: admin.role,
-    timestamp: Date.now()
-  })).toString('base64');
+  return jwt.sign(
+    { 
+      email: admin.email,
+      name: admin.name,
+      role: admin.role 
+    },
+    JWT_SECRET,
+    { expiresIn: '24h' }
+  );
 }
 
 export function verifySessionToken(token) {
   try {
-    const session = JSON.parse(Buffer.from(token, 'base64').toString());
-    // Check if token is not expired (24 hours)
-    if (Date.now() - session.timestamp > 24 * 60 * 60 * 1000) {
-      return null;
-    }
-    return session;
-  } catch {
+    return jwt.verify(token, JWT_SECRET);
+  } catch (error) {
+    console.error('Token verification failed:', error);
     return null;
   }
+}
 }
