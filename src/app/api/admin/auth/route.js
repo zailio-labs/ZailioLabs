@@ -1,5 +1,5 @@
 // src/app/api/admin/auth/route.js
-import { authenticateAdmin, createSessionToken } from '../../../../lib/auth';
+import { authenticateAdmin, createSessionToken } from '@/lib/auth';
 
 export async function POST(request) {
   try {
