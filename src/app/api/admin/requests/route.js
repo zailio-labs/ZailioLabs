@@ -1,6 +1,6 @@
 // src/app/api/admin/requests/route.js
-import { getContacts, updateContactStatus, getUnreadCount, deleteContact } from '../../../../models/Contact';
-import { verifySessionToken } from '../../../../lib/auth';
+import { getContacts, updateContactStatus, getUnreadCount, deleteContact } from '@/models/Contact';
+import { verifySessionToken } from '@/lib/auth';
 
 function checkAuth(request) {
   const token = request.headers.get('authorization')?.replace('Bearer ', '');
