@@ -1,7 +1,7 @@
 // src/app/api/admin/email/route.js
-import { getContactById, updateContactStatus } from '../../../../models/Contact';
-import { sendReplyEmail } from '../../../../lib/email';
-import { verifySessionToken } from '../../../../lib/auth';
+import { getContactById, updateContactStatus } from '@/models/Contact';
+import { sendReplyEmail } from '@/lib/email';
+import { verifySessionToken } from '@/lib/auth';
 
 export async function POST(request) {
   try {
