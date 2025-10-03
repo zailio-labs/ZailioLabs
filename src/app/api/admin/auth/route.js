@@ -5,6 +5,13 @@ export async function POST(request) {
   try {
     const { email, password } = await request.json();
     
+    if (!email || !password) {
+      return Response.json(
+        { error: 'Email and password are required' },
+        { status: 400 }
+      );
+    }
+
     const admin = await authenticateAdmin(email, password);
     if (!admin) {
       return Response.json(
