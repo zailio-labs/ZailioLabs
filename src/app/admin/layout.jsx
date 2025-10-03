@@ -6,21 +6,41 @@ import { useEffect, useState } from 'react';
 export default function AdminLayout({ children }) {
   const router = useRouter();
   const [admin, setAdmin] = useState(null);
+  const [loading, setLoading] = useState(true);
 
   useEffect(() => {
-    const token = localStorage.getItem('adminToken');
-    if (!token) {
-      router.push('/admin/login');
-    } else {
-      // Verify token
+    const checkAuth = async () => {
       try {
-        const session = JSON.parse(atob(token));
-        setAdmin(session);
-      } catch {
+        const token = localStorage.getItem('adminToken');
+        if (!token) {
+          router.push('/admin/login');
+          return;
+        }
+
+        // Verify token by making an API call
+        const response = await fetch('/api/admin/verify', {
+          headers: {
+            'Authorization': `Bearer ${token}`
+          }
+        });
+
+        if (response.ok) {
+          const data = await response.json();
+          setAdmin(data.admin);
+        } else {
+          localStorage.removeItem('adminToken');
+          router.push('/admin/login');
+        }
+      } catch (error) {
+        console.error('Auth check failed:', error);
         localStorage.removeItem('adminToken');
         router.push('/admin/login');
+      } finally {
+        setLoading(false);
       }
-    }
+    };
+
+    checkAuth();
   }, [router]);
 
   const logout = () => {
@@ -28,12 +48,16 @@ export default function AdminLayout({ children }) {
     router.push('/admin/login');
   };
 
-  if (!admin) {
+  if (loading) {
     return (
       <div className="min-h-screen bg-gray-50 flex items-center justify-center">
         <div className="animate-spin rounded-full h-12 w-12 border-b-2 border-[#2f9158]"></div>
       </div>
     );
+  }
+
+  if (!admin) {
+    return null; // Will redirect in useEffect
   }
 
   return (
