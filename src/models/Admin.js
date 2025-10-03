@@ -39,3 +39,8 @@ export async function verifyAdmin(email, password) {
   const isValid = await bcrypt.compare(password, admin.password);
   return isValid ? admin : null;
 }
+
+export default {
+  createAdminUser,
+  verifyAdmin
+};
