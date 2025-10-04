@@ -40,4 +40,3 @@ export function verifySessionToken(token) {
     return null;
   }
 }
-}
